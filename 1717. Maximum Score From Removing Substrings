@@ -1,0 +1,26 @@
+class Solution:
+    def maximumGain(self, s: str, x: int, y: int) -> int:
+        def remove_substring(s: str, sub: str, score: int) -> (str, int):
+            stack = []
+            points = 0
+            for char in s:
+                if stack and stack[-1] + char == sub:
+                    stack.pop()
+                    points += score
+                else:
+                    stack.append(char)
+            return ''.join(stack), points
+        
+        if x > y:
+            s, points_x = remove_substring(s, "ab", x)
+            _, points_y = remove_substring(s, "ba", y)
+        else:
+            s, points_y = remove_substring(s, "ba", y)
+            _, points_x = remove_substring(s, "ab", x)
+        
+        return points_x + points_y
+
+# Example usage:
+solution = Solution()
+print(solution.maximumGain("cdbcbbaaabab", 4, 5))  # Output: 19
+print(solution.maximumGain("aabbaaxybbaabb", 5, 4))  # Output: 20
