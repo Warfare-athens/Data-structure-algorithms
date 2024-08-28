@@ -16,3 +16,9 @@ class MyStack:
         
     def empty(self) -> bool:
         return len(self.q) == 0
+
+
+
+Complexity
+Time complexity: O(n)
+Space complexity: O(1)
