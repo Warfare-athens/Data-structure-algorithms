@@ -6,7 +6,6 @@
 <hr/>
 
 ## Recursion
-
 ### Easy level
 - [21. Merge Two Sorted Lists]
 - [226. Invert Binary Tree ]
